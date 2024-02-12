@@ -28,7 +28,7 @@ jobs:
         cache: 'pnpm'
     - name: Install dependencies & build
       run: | 
-        pnpm install --prod --fozen-lockfile
+        pnpm install --frozen-lockfile
         pnpm build
     - name: Archive production artifacts
       run: |
