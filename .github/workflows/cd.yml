@@ -1,0 +1,51 @@
+name: Deploy to server or Storage Box
+
+on: 
+  workflow_run:
+    workflows: [CI]
+    types:
+      - completed
+
+env:
+  KEY_PATH: ~/.ssh/id_ed25519
+  ARTIFACT: payloadcms.tar.gz
+      
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up SSH key
+        run: |
+          env
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_KEY }}" > $KEY_PATH
+          chmod 600 $KEY_PATH
+          ssh-keyscan -p ${{ secrets.DEPLOY_PORT }} -t ed25519 ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Download production artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: payloadcms
+
+      - name: Deploy artifact
+        run: |
+          scp -P ${{ secrets.DEPLOY_PORT }} $ARTIFACT ${{ secrets.DEPLOY_USERNAME }}@${{ secrets.DEPLOY_HOST }}:$DEPLOY_PATH
+
+      - name: Install & restart service
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USERNAME }}
+          port: ${{ secrets.DEPLOY_PORT }}
+          key_path: $KEY_PATH
+          envs: DEPLOY_PATH,ARTIFACT
+          script: |
+            cd $DEPLOY_PATH
+            tar xzfv $ARTIFACT
+            pnpm i --prod --frozen-lockfile
+            pm2 restart
+            rm $ARTIFACT
