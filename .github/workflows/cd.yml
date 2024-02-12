@@ -1,6 +1,6 @@
 name: CD
 
-on: 
+on:
   workflow_run:
     workflows: [CI]
     types:
@@ -9,16 +9,15 @@ on:
 env:
   KEY_PATH: ~/.ssh/id_ed25519
   ARTIFACT: payloadcms.tar.gz
-      
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: CD
-    
+
     steps:
       - name: Set up SSH key
         run: |
-          env
           mkdir -p ~/.ssh
           echo "${{ secrets.DEPLOY_KEY }}" > $KEY_PATH
           chmod 600 $KEY_PATH
