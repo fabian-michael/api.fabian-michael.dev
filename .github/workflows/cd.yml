@@ -8,6 +8,7 @@ on:
 
 env:
   ARTIFACT: payloadcms.tar.gz
+  DEPLOY_PATH: /var/payload
 
 jobs:
   deploy:
