@@ -32,7 +32,7 @@ jobs:
         pnpm build
     - name: Archive production artifacts
       run: |
-        tar czfv payloadcms.tar.gz dist build package.json pnpm-lock.yaml
+        tar czfv payloadcms.tar.gz dist build package.json pnpm-lock.yaml ecosystem.config.js
     - name: Upload production artifacts
       uses: actions/upload-artifact@v4
       with:
