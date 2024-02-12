@@ -1,4 +1,5 @@
-import { CollectionConfig } from 'payload/types'
+import path from 'path';
+import { CollectionConfig } from 'payload/types';
 
 export const Media: CollectionConfig = {
     access: {
@@ -12,6 +13,8 @@ export const Media: CollectionConfig = {
         },
     ],
     upload: {
+        staticDir: path.join(process.cwd(), 'media'),
+        staticURL: '/media',
         imageSizes: [
             {
                 name: 'square',
