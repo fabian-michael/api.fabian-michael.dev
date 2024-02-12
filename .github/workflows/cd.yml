@@ -63,5 +63,5 @@ jobs:
             cd $DEPLOY_PATH
             tar xzfv $ARTIFACT
             pnpm i --prod --frozen-lockfile
-            pm2 restart
+            pm2 restart ecosystem.config.js
             rm $ARTIFACT
