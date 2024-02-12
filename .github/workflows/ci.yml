@@ -31,14 +31,6 @@ jobs:
         cache: 'pnpm'
     - name: Install dependencies & build
       run: | 
-        pnpm install
+        pnpm install --prod --offline
         pnpm build
-    - name: Archive production artifacts
-      run: |
-        tar czfv payloadcms.tar.gz dist server node_modules
-    - name: Upload production artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: payloadcms
-        path: payloadcms.tar.gz
     
