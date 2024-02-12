@@ -7,7 +7,6 @@ on:
       - completed
 
 env:
-  KEY_PATH: ~/.ssh/id_ed25519
   ARTIFACT: payloadcms.tar.gz
 
 jobs:
@@ -20,7 +19,7 @@ jobs:
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 $KEY_PATH
+          chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -p ${{ secrets.DEPLOY_PORT }} -t ed25519 ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts
 
       - name: Download production artifact
@@ -38,7 +37,7 @@ jobs:
           host: ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USERNAME }}
           port: ${{ secrets.DEPLOY_PORT }}
-          key_path: $KEY_PATH
+          key_path: ~/.ssh/id_ed25519
           envs: DEPLOY_PATH,ARTIFACT
           script: |
             cd $DEPLOY_PATH
