@@ -19,7 +19,7 @@ jobs:
       - name: Set up SSH key
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.DEPLOY_KEY }}" > $KEY_PATH
+          echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 $KEY_PATH
           ssh-keyscan -p ${{ secrets.DEPLOY_PORT }} -t ed25519 ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts
 
