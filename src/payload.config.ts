@@ -18,7 +18,7 @@ const PAYLOAD_PUBLIC_FRONTEND_BASE = process.env.PAYLOAD_PUBLIC_FRONTEND_BASE;
 export default buildConfig({
     cors: [
         PAYLOAD_PUBLIC_FRONTEND_BASE
-    ],
+    ].filter(Boolean),
     admin: {
         user: Users.slug,
         bundler: webpackBundler(),
