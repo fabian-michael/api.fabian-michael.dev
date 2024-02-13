@@ -9,12 +9,16 @@ import { buildConfig } from 'payload/config'
 import { Media } from './collections/Media'
 import Users from './collections/Users'
 import { Home } from './globals/Home'
+import { LegalNotice } from './globals/LegalNotice'
 import { buildUrl } from './utils'
 
 const DEFAUlT_LOCALE = 'en';
 const PAYLOAD_PUBLIC_FRONTEND_BASE = process.env.PAYLOAD_PUBLIC_FRONTEND_BASE;
 
 export default buildConfig({
+    cors: [
+        PAYLOAD_PUBLIC_FRONTEND_BASE
+    ],
     admin: {
         user: Users.slug,
         bundler: webpackBundler(),
@@ -22,10 +26,12 @@ export default buildConfig({
             url: ({ data, documentInfo, locale }) => buildUrl([
                 PAYLOAD_PUBLIC_FRONTEND_BASE,
                 locale.code !== DEFAUlT_LOCALE && locale.code,
-                data.slug !== 'home' && data.slug
-            ].filter(Boolean)),
+                documentInfo.slug !== 'home' && documentInfo.slug,
+                data.slug
+            ]),
             globals: [
                 'home',
+                'legal-notice'
             ],
             breakpoints: [
                 {
@@ -59,7 +65,10 @@ export default buildConfig({
         Users,
         Media,
     ],
-    globals: [Home],
+    globals: [
+        Home,
+        LegalNotice
+    ],
     typescript: {
         outputFile: path.resolve(__dirname, 'payload-types.ts'),
     },
