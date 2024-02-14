@@ -1,5 +1,5 @@
-import { lexicalHTML } from "@payloadcms/richtext-lexical";
 import { GlobalConfig } from "payload/types";
+import { richText } from "../../fields/richText";
 
 export const Home: GlobalConfig = {
     access: {
@@ -22,13 +22,7 @@ export const Home: GlobalConfig = {
                 {
                     name: 'hero',
                     fields: [
-                        {
-                            type: 'richText',
-                            name: 'text',
-                        },
-                        lexicalHTML('text', {
-                            name: 'text_html'
-                        }),
+                        ...richText('text'),
                         {
                             name: 'image',
                             type: 'upload',
