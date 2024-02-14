@@ -35,6 +35,14 @@ export const BlogPostings: CollectionConfig = {
                 ],
             },
         },
+        {
+            name: 'image',
+            type: 'upload',
+            relationTo: 'media',
+            filterOptions: {
+                mimeType: { contains: 'image' },
+            },
+        },
         ...richText('text')
     ]
 }
