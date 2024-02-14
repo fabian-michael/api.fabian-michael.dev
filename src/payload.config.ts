@@ -5,6 +5,7 @@ import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { payloadCloud } from '@payloadcms/plugin-cloud'
 import { buildConfig } from 'payload/config'
 
+import { BlogPostings } from './collections/BlogPostings'
 import { Media } from './collections/Media'
 import Users from './collections/Users'
 import { editorConfig } from './editor.config'
@@ -19,6 +20,7 @@ export default buildConfig({
     collections: [
         Users,
         Media,
+        BlogPostings,
     ],
     globals: [
         Home,
