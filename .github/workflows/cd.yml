@@ -38,7 +38,7 @@ jobs:
 
       - name: Archive production artifacts
         run: |
-          tar czfv payloadcms.tar.gz dist build package.json pnpm-lock.yaml ecosystem.config.js
+          tar czfv payloadcms.tar.gz dist build package.json pnpm-lock.yaml
 
       - name: Set up SSH key
         run: |
@@ -61,6 +61,7 @@ jobs:
           envs: DEPLOY_PATH,ARTIFACT
           script: |
             cd $DEPLOY_PATH
+            rm -rf dist build
             tar xzfv $ARTIFACT
             pnpm i --prod --frozen-lockfile
             pm2 restart ecosystem.config.js
