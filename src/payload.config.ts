@@ -10,6 +10,7 @@ import { Media } from './collections/Media'
 import Users from './collections/Users'
 import { editorConfig } from './config/editor.config'
 import { PAYLOAD_PUBLIC_FRONTEND_BASE } from './config/env.public'
+import { expressConfig } from './config/express.config'
 import { l10nConfig } from './config/l10n.config'
 import { livePreviewConfig } from './config/livePreview.config'
 import { uploadConfig } from './config/upload.config'
@@ -35,7 +36,7 @@ export default buildConfig({
     },
     editor: editorConfig(),
     upload: uploadConfig(),
-    express: ,
+    express: expressConfig(),
     plugins: [
         payloadCloud()
     ],
