@@ -14,6 +14,7 @@ import { Home } from './globals/Home'
 import { LegalNotice } from './globals/LegalNotice'
 import { l10nConfig } from './l10n.config'
 import { livePreviewConfig } from './livePreview.config'
+import { uploadConfig } from './upload.config'
 
 
 export default buildConfig({
@@ -33,6 +34,7 @@ export default buildConfig({
             livePreviewConfig(),
     },
     editor: editorConfig(),
+    upload: uploadConfig(),
     plugins: [
         payloadCloud()
     ],
