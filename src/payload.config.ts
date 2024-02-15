@@ -8,13 +8,13 @@ import { buildConfig } from 'payload/config'
 import { BlogPostings } from './collections/BlogPostings'
 import { Media } from './collections/Media'
 import Users from './collections/Users'
-import { editorConfig } from './editor.config'
-import { PAYLOAD_PUBLIC_FRONTEND_BASE } from './env'
+import { editorConfig } from './config/editor.config'
+import { PAYLOAD_PUBLIC_FRONTEND_BASE } from './config/env.public'
+import { l10nConfig } from './config/l10n.config'
+import { livePreviewConfig } from './config/livePreview.config'
+import { uploadConfig } from './config/upload.config'
 import { Home } from './globals/Home'
 import { LegalNotice } from './globals/LegalNotice'
-import { l10nConfig } from './l10n.config'
-import { livePreviewConfig } from './livePreview.config'
-import { uploadConfig } from './upload.config'
 
 
 export default buildConfig({
@@ -35,6 +35,7 @@ export default buildConfig({
     },
     editor: editorConfig(),
     upload: uploadConfig(),
+    express: ,
     plugins: [
         payloadCloud()
     ],

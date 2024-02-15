@@ -1,7 +1,7 @@
 import { LivePreviewConfig } from "payload/config";
-import { PAYLOAD_PUBLIC_FRONTEND_BASE } from "./env";
+import { buildUrl } from "../utils";
+import { PAYLOAD_PUBLIC_FRONTEND_BASE } from "./env.public";
 import { DEFAUlT_LOCALE } from "./l10n.config";
-import { buildUrl } from "./utils";
 
 export function livePreviewConfig(): LivePreviewConfig & {
     collections?: string[];

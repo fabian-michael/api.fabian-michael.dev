@@ -1,6 +1,5 @@
 import type { Options as ExpressFileUploadOptions } from 'express-fileupload';
-
-const UPLOAD_LIMIT = parseInt(process.env.UPLOAD_LIMIT ?? '1');
+import { UPLOAD_LIMIT } from './env.private';
 
 export const uploadConfig = (): ExpressFileUploadOptions => ({
     limits: {
