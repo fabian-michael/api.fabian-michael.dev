@@ -1,5 +1,6 @@
-import { PAYLOAD_PUBLIC_FRONTEND_HOSTNAME } from "./env.public";
+import { PAYLOAD_PUBLIC_FRONTEND_BASE_URL } from "./env.public";
 
 export const corsConfig = (): string[] => [
-    PAYLOAD_PUBLIC_FRONTEND_HOSTNAME,
+    'http://localhost:5173',
+    PAYLOAD_PUBLIC_FRONTEND_BASE_URL,
 ].filter(Boolean);

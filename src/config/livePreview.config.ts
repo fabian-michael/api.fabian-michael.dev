@@ -3,9 +3,6 @@ import { buildUrl } from "../utils";
 import { PAYLOAD_PUBLIC_FRONTEND_BASE_URL } from "./env.public";
 import { DEFAUlT_LOCALE } from "./l10n.config";
 
-console.log(PAYLOAD_PUBLIC_FRONTEND_BASE_URL);
-
-
 export function livePreviewConfig(): LivePreviewConfig & {
     collections?: string[];
     globals?: string[];
