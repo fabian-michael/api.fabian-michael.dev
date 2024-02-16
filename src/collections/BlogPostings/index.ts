@@ -36,6 +36,10 @@ export const BlogPostings: CollectionConfig = {
             },
         },
         {
+            name: 'abstract',
+            type: 'textarea',
+        },
+        {
             name: 'image',
             type: 'upload',
             relationTo: 'media',
