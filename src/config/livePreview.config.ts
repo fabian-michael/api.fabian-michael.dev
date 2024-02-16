@@ -1,7 +1,10 @@
 import { LivePreviewConfig } from "payload/config";
 import { buildUrl } from "../utils";
-import { PAYLOAD_PUBLIC_FRONTEND_BASE } from "./env.public";
+import { PAYLOAD_PUBLIC_FRONTEND_BASE_URL } from "./env.public";
 import { DEFAUlT_LOCALE } from "./l10n.config";
+
+console.log(PAYLOAD_PUBLIC_FRONTEND_BASE_URL);
+
 
 export function livePreviewConfig(): LivePreviewConfig & {
     collections?: string[];
@@ -9,7 +12,7 @@ export function livePreviewConfig(): LivePreviewConfig & {
 } {
     return {
         url: ({ data, documentInfo, locale }) => buildUrl([
-            PAYLOAD_PUBLIC_FRONTEND_BASE,
+            PAYLOAD_PUBLIC_FRONTEND_BASE_URL,
             locale.code !== DEFAUlT_LOCALE && locale.code,
             documentInfo.slug !== 'home' && documentInfo.slug,
             data.slug
