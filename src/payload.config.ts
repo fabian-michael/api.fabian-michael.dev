@@ -10,6 +10,7 @@ import Users from './collections/Users'
 import { adminConfig } from './config/admin.config'
 import { corsConfig } from './config/cors.config'
 import { editorConfig } from './config/editor.config'
+import { PAYLOAD_SERVER_URL } from './config/env.private'
 import { expressConfig } from './config/express.config'
 import { l10nConfig } from './config/l10n.config'
 import { uploadConfig } from './config/upload.config'
@@ -27,6 +28,7 @@ export default buildConfig({
         Home,
         LegalNotice
     ],
+    serverURL: PAYLOAD_SERVER_URL,
     admin: adminConfig(),
     editor: editorConfig(),
     upload: uploadConfig(),
