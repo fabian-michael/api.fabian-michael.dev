@@ -4,9 +4,11 @@ import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { payloadCloud } from '@payloadcms/plugin-cloud'
 import { buildConfig } from 'payload/config'
 
+import { ApiKeys } from './collections/ApiKeys'
 import { BlogPostings } from './collections/BlogPostings'
+import { FrontendUsers } from './collections/FrontendUsers'
 import { Media } from './collections/Media'
-import Users from './collections/Users'
+import { Users } from './collections/Users'
 import { adminConfig } from './config/admin.config'
 import { corsConfig } from './config/cors.config'
 import { editorConfig } from './config/editor.config'
@@ -21,6 +23,8 @@ import { LegalNotice } from './globals/LegalNotice'
 export default buildConfig({
     collections: [
         Users,
+        FrontendUsers,
+        ApiKeys,
         Media,
         BlogPostings,
     ],

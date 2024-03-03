@@ -1,8 +1,10 @@
 import { CollectionConfig } from 'payload/types'
 
-export const Users: CollectionConfig = {
-  slug: 'users',
-  auth: true,
+export const FrontendUsers: CollectionConfig = {
+  slug: 'frontend-users',
+  auth: {
+    verify: true,
+  },
   admin: {
     useAsTitle: 'email',
   },

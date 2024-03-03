@@ -1,7 +1,7 @@
 import { CollectionConfig } from "payload/types";
+import { published } from "../../access/published";
 import { richText } from "../../fields/richText";
-import { publishedOrLoggedIn } from "./acess/publishedOrLoggedIn";
-import { formatSlug } from "./hooks/formatSlug";
+import { formatSlug } from "../../hooks/formatSlug";
 
 export const BlogPostings: CollectionConfig = {
     slug: 'blog-postings',
@@ -12,7 +12,7 @@ export const BlogPostings: CollectionConfig = {
         drafts: true
     },
     access: {
-        read: publishedOrLoggedIn,
+        read: published,
     },
     fields: [
         {
