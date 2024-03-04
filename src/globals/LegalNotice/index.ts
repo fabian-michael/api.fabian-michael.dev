@@ -1,9 +1,10 @@
 import { lexicalHTML } from "@payloadcms/richtext-lexical";
 import { GlobalConfig } from "payload/types";
+import { isLoggedIn } from "../../access/isLoggedIn";
 
 export const LegalNotice: GlobalConfig = {
     access: {
-        read: () => true,
+        read: isLoggedIn(),
     },
     slug: 'legal-notice',
     fields: [

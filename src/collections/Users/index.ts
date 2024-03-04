@@ -7,7 +7,9 @@ export const Users: CollectionConfig = {
     useAsTitle: 'email',
   },
   fields: [
-    // Email added by default
-    // Add more fields as needed
+    {
+      name: 'is_admin',
+      type: 'checkbox',
+    }
   ],
 }

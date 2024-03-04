@@ -1,5 +1,6 @@
 import { CollectionConfig } from "payload/types";
-import { published } from "../../access/published";
+import { isLoggedIn } from "../../access/isLoggedIn";
+import { isPublished } from "../../access/isPublished";
 import { richText } from "../../fields/richText";
 import { formatSlug } from "../../hooks/formatSlug";
 
@@ -12,7 +13,7 @@ export const BlogPostings: CollectionConfig = {
         drafts: true
     },
     access: {
-        read: published,
+        read: isLoggedIn(isPublished),
     },
     fields: [
         {

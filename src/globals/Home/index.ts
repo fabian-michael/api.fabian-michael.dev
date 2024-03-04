@@ -1,9 +1,10 @@
 import { GlobalConfig } from "payload/types";
+import { isLoggedIn } from "../../access/isLoggedIn";
 import { richText } from "../../fields/richText";
 
 export const Home: GlobalConfig = {
     access: {
-        read: () => true,
+        read: isLoggedIn(),
     },
     slug: 'home',
     fields: [

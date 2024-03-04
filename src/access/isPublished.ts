@@ -1,6 +1,6 @@
 import type { Access } from 'payload/config'
 
-export const published: Access = () => {
+export const isPublished: Access = () => {
     return {
         or: [
             {
