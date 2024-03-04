@@ -6,6 +6,13 @@ export const ApiKeys: CollectionConfig = {
     useAPIKey: true,
     disableLocalStrategy: true,
   },
+  admin: {
+    useAsTitle: 'name',
+  },
   fields: [
+    {
+      name: 'name',
+      type: 'text',
+    }
   ],
 }
