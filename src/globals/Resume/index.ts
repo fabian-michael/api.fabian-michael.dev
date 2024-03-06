@@ -1,14 +1,15 @@
 import { lexicalHTML } from "@payloadcms/richtext-lexical";
 import { GlobalConfig } from "payload/types";
 import { verifyUser } from "../../access/verifyUser";
+import { FrontendUsers } from "../../collections/FrontendUsers";
 
-export const LegalNotice: GlobalConfig = {
+export const Resume: GlobalConfig = {
     access: {
         read: verifyUser({
-            allowApiKeys: true
+            allowedUserCollections: [FrontendUsers.slug]
         }),
     },
-    slug: 'legal-notice',
+    slug: 'resume',
     fields: [
         {
             name: 'title',

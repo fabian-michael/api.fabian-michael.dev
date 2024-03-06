@@ -1,6 +1,6 @@
 import { CollectionConfig } from "payload/types";
-import { isLoggedIn } from "../../access/isLoggedIn";
 import { isPublished } from "../../access/isPublished";
+import { verifyUser } from "../../access/verifyUser";
 import { richText } from "../../fields/richText";
 import { formatSlug } from "../../hooks/formatSlug";
 
@@ -13,7 +13,10 @@ export const BlogPostings: CollectionConfig = {
         drafts: true
     },
     access: {
-        read: isLoggedIn(isPublished),
+        read: verifyUser({
+            allowApiKeys: true,
+            additionalAccess: isPublished
+        }),
     },
     fields: [
         {
