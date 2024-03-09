@@ -13,8 +13,6 @@ export const verifyUser = ({
 } = {}): Access => {
     return (args) => {
         const { req: { user } } = args;
-        console.log(user);
-
 
         if (!user) {
             return false;
