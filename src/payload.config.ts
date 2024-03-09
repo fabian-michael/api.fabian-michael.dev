@@ -18,6 +18,7 @@ import { l10nConfig } from './config/l10n.config'
 import { uploadConfig } from './config/upload.config'
 import { Home } from './globals/Home'
 import { LegalNotice } from './globals/LegalNotice'
+import { Resume } from './globals/Resume'
 
 
 export default buildConfig({
@@ -30,7 +31,8 @@ export default buildConfig({
     ],
     globals: [
         Home,
-        LegalNotice
+        LegalNotice,
+        Resume,
     ],
     serverURL: PAYLOAD_SERVER_URL,
     admin: adminConfig(),
