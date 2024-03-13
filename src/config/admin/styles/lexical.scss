@@ -1,0 +1,9 @@
+.rich-text-lexical .editor-shell {
+    all: unset;
+}
+
+.ContentEditable__root {
+    .gradient-text {
+        @apply bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text;
+    }
+}

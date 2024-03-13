@@ -1,4 +1,5 @@
 import { viteBundler } from "@payloadcms/bundler-vite";
+import path from 'path';
 import { Config } from "payload/config";
 import { Users } from "../collections/Users";
 import { PAYLOAD_PUBLIC_FRONTEND_BASE_URL } from "./env.public";
@@ -11,4 +12,5 @@ export const adminConfig = (): AdminConfig => ({
     bundler: viteBundler(),
     livePreview: PAYLOAD_PUBLIC_FRONTEND_BASE_URL &&
         livePreviewConfig(),
+    css: path.resolve(__dirname, './admin/styles/_index.scss'),
 });
