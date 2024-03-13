@@ -10,6 +10,7 @@ export function editorConfig(): RichTextAdapter {
             GradientTextFeature(),
         ],
         lexical: {
+            namespace: 'payload-richtext-lexical',
             theme: {
                 root: 'prose'
             }

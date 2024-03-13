@@ -8,8 +8,9 @@ export class GradientTextNode extends ElementNode {
         return 'gradient-text';
     }
 
-    static importDOM(): DOMConversionMap<HTMLSpanElement> {
+    static importDOM(): DOMConversionMap<HTMLSpanElement> | null {
         return {
+            //@ts-ignore
             span: (domNode: HTMLSpanElement) => ({
                 conversion: convertSpanElement(domNode),
                 priority: 1

@@ -3,8 +3,6 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: [
-		'./node_modules/payload/dist/**/*.{html,js,ts,jsx,tsx}',
-		'./node_modules/@payloadcms/richtext-lexical/dist/**/*.{html,js,ts,jsx,tsx}'
 	],
 	safelist: [
 		'prose',
