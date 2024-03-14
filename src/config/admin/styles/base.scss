@@ -1,0 +1,56 @@
+:root {
+    --font-body: theme('fontFamily.sans');
+}
+
+html {
+    font-size: 16px;
+    --theme-bg: oklch(var(--b1) / 1);
+
+    &[data-theme="dark"] {
+        --theme-bg: oklch(var(--b1) / 1);
+    }
+}
+
+body {
+    @apply font-sans;
+    height: auto;
+    min-height: 100dvh;
+    --bg-gradient-left: oklch(var(--p) / 0.15);
+    --bg-gradient-right: oklch(var(--s) / 0.15);
+    background-image: radial-gradient(at -20vw 20dvh, var(--bg-gradient-left) 0px, rgba(0, 0, 0, 0) 60%),
+        radial-gradient(at 120vw 120dvh, var(--bg-gradient-right) 0px, rgba(0, 0, 0, 0) 60%);
+}
+
+.template-default__wrap {
+    @apply bg-base-100 bg-opacity-90;
+}
+
+
+.file-details header {
+    @apply bg-base-300 rounded-lg overflow-hidden;
+}
+
+
+.table tbody tr:nth-child(odd) {
+    @apply bg-base-300;
+}
+
+.auth-fields {
+    @apply bg-base-300 rounded-lg overflow-hidden;
+}
+
+.doc-controls__dots {
+    @apply rounded-btn;
+}
+
+.collection-list__header {
+    @apply items-center;
+}
+
+.collection-list__header .pill {
+    top: 0;
+}
+
+h1 {
+    @apply text-3xl font-bold;
+}

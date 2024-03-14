@@ -1,0 +1,11 @@
+.collapsible--style-default>.collapsible__toggle-wrap .collapsible__toggle {
+    @apply bg-base-100;
+}
+
+.collapsible--style-default.collapsible--hovered>.collapsible__toggle-wrap .collapsible__toggle {
+    background-color: var(--fallback-bc, oklch(var(--bc) / 0.2));
+}
+
+.collapsible__content {
+    @apply bg-base-300;
+}

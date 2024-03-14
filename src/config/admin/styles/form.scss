@@ -1,0 +1,53 @@
+.column-selector,
+.date-time-picker .react-datepicker__input-container input,
+.dropzone,
+.edit-upload__input input,
+.field-type.api-key input,
+.field-type.email input,
+.field-type.password input,
+.field-type.text:not(.has-many) input,
+.field-type.textarea .textarea-outer,
+.list-controls__wrap,
+.upload__wrap {
+    @apply bg-base-100 rounded-lg border border-base-content border-solid border-opacity-20;
+
+    &:disabled {
+        @apply cursor-not-allowed border-opacity-100 bg-opacity-100 text-opacity-40 border-base-200 bg-base-200 text-base-content;
+    }
+}
+
+.column-selector .date-time-picker .react-datepicker__input-container input,
+.edit-upload__input input,
+.field-type.api-key input,
+.field-type.email input,
+.field-type.password input,
+.field-type.text:not(.has-many) input,
+.field-type.textarea .textarea-outer,
+.list-controls__wrap {
+    @apply px-4 py-0 min-h-12 h-auto;
+}
+
+.list-controls .search-filter input {
+    @apply bg-transparent;
+}
+
+.field-type.textarea .textarea-outer {
+    @apply py-2;
+}
+
+.textarea {
+    @apply px-0;
+}
+
+label.field-label {
+    @apply flex items-center justify-between px-1 py-2 select-none cursor-pointer text-sm;
+}
+
+.checkbox-input__input {
+    @apply rounded-btn bg-base-100 focus:outline-none shrink-0;
+    box-shadow: none !important;
+
+    input[type="checkbox"] {
+        box-shadow: none !important;
+    }
+}

@@ -1,0 +1,7 @@
+.Toastify .Toastify__toast {
+    @apply rounded-lg;
+
+    &--success {
+        @apply bg-success text-success-content;
+    }
+}

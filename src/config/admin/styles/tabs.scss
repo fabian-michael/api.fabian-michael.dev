@@ -1,0 +1,49 @@
+.doc-tabs__tabs {
+    @apply rounded-btn bg-base-200 p-1 gap-0;
+}
+
+.doc-tab {
+    @apply rounded-btn;
+
+    &--active {
+        @apply bg-secondary text-secondary-content;
+    }
+
+    &::before {
+        content: none !important;
+    }
+}
+
+.doc-tab__link {
+    &:focus:not(:focus-visible) {
+        opacity: 1 !important;
+    }
+
+    &:focus-visible {
+        @apply ring-2 ring-secondary ring-offset-base-200 outline-none rounded-btn;
+    }
+}
+
+.doc-tab__label {
+    @apply py-0 px-4 h-8 leading-none text-sm;
+}
+
+.doc-tab__count {
+    @apply rounded-full px-2 h-5 leading-5;
+}
+
+.tabs-field__tabs {
+    @apply border-none;
+}
+
+.tabs-field__tab-button {
+    @apply m-0 border-b-2 border-solid border-base-content border-opacity-20 h-12 py-0 px-4 text-lg;
+
+    &--active {
+        @apply border-opacity-100;
+    }
+
+    &::after {
+        content: none !important;
+    }
+}

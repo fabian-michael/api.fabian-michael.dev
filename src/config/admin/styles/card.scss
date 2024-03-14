@@ -1,0 +1,9 @@
+.card {
+    @apply rounded-lg bg-base-300 transition-all border border-base-content border-solid border-opacity-20;
+
+    &--has-onclick {
+        &:hover {
+            @apply bg-base-300 border-opacity-50;
+        }
+    }
+}

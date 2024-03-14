@@ -13,4 +13,7 @@ export const adminConfig = (): AdminConfig => ({
     livePreview: PAYLOAD_PUBLIC_FRONTEND_BASE_URL &&
         livePreviewConfig(),
     css: path.resolve(__dirname, './admin/styles/_index.scss'),
+    components: {
+
+    }
 });

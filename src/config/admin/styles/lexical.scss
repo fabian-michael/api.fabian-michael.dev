@@ -2,8 +2,14 @@
     all: unset;
 }
 
-.ContentEditable__root {
+.editor {
+    @apply bg-base-100 rounded-lg border border-base-content border-solid border-opacity-20 px-4 py-2;
+
     .gradient-text {
         @apply bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text;
     }
+}
+
+.ContentEditable__root {
+    @apply p-0;
 }
