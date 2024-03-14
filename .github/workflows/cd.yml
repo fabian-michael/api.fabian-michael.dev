@@ -38,7 +38,7 @@ jobs:
 
       - name: Archive production artifacts
         run: |
-          tar czfv payloadcms.tar.gz dist build package.json pnpm-lock.yaml
+          tar czfv payloadcms.tar.gz dist build static package.json pnpm-lock.yaml
 
       - name: Set up SSH key
         run: |
