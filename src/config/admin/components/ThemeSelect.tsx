@@ -17,23 +17,54 @@ const options: OptionType[] = [
 export const ThemeSelect: FunctionComponent = () => {
     const [theme, setTheme] = React.useState<Theme | null>(null);
 
+    // initialize
     useEffect(() => {
         const themeFromLocalStorage = localStorage.getItem('theme') as Theme;
         if (themeFromLocalStorage) {
             setTheme(themeFromLocalStorage);
+        } else {
+            setTheme('system');
         }
     }, []);
 
+    // update
     useEffect(() => {
+        if (theme === null) {
+            return;
+        }
+
         if (theme === 'system') {
-            const sysTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            document.documentElement.dataset.theme = sysTheme;
+            const systemThemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            const systemTheme = systemThemeMediaQuery.matches ? 'dark' : 'light';
+            document.documentElement.dataset.theme = systemTheme;
         } else {
             document.documentElement.dataset.theme = theme;
         }
 
         localStorage.setItem('theme', theme);
     }, [theme]);
+
+    // handle prefers-color-scheme change if theme is 'system'
+    useEffect(() => {
+        if (
+            theme === null ||
+            theme !== 'system'
+        ) {
+            return;
+        };
+
+        const systemThemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+        const handleSystemThemeChange = (event: MediaQueryListEvent) => {
+            const systemTheme = event.matches ? 'dark' : 'light';
+            document.documentElement.dataset.theme = systemTheme;
+        }
+        systemThemeMediaQuery.addEventListener('change', handleSystemThemeChange);
+
+        return () => {
+            systemThemeMediaQuery.removeEventListener('change', handleSystemThemeChange);
+        }
+    }, [theme])
 
     if (theme === null) {
         return null;
