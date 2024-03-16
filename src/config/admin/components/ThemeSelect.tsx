@@ -15,7 +15,7 @@ const options: OptionType[] = [
 ]
 
 export const ThemeSelect: FunctionComponent = () => {
-    const [theme, setTheme] = React.useState<Theme>('system');
+    const [theme, setTheme] = React.useState<Theme | null>(null);
 
     useEffect(() => {
         const themeFromLocalStorage = localStorage.getItem('theme') as Theme;
@@ -34,6 +34,10 @@ export const ThemeSelect: FunctionComponent = () => {
 
         localStorage.setItem('theme', theme);
     }, [theme]);
+
+    if (theme === null) {
+        return null;
+    }
 
     return (
         <Select<OptionType>
