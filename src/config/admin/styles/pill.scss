@@ -1,0 +1,27 @@
+.pill {
+
+    &,
+    .list-controls__buttons-wrap & {
+        --btn-color: var(--b3);
+        @apply bg-base-300 text-base-content transition-all;
+
+        &.pill--style-light {
+            &.pill--has-action:hover {
+                background-color: color-mix(in oklab, oklch(var(--btn-color)/var(--tw-bg-opacity, 1)) 90%, black);
+            }
+        }
+    }
+}
+
+.pill__icon line {
+    stroke: currentColor !important;
+}
+
+.column-selector__column.column-selector__column--active {
+    --btn-color: var(--s);
+    @apply bg-secondary text-secondary-content;
+}
+
+.collection-list__header .pill {
+    top: 0;
+}

@@ -1,0 +1,26 @@
+.template-default__wrap {
+    @apply bg-base-100 bg-opacity-90;
+}
+
+.doc-controls {
+    &::before {
+        @apply bg-base-300;
+    }
+}
+
+.doc-controls__dots {
+    @apply rounded-btn;
+}
+
+.collection-list__header {
+    @apply items-center;
+}
+
+.where-builder,
+.file-details header {
+    @apply bg-base-100 border border-solid border-base-content border-opacity-20 rounded-lg;
+}
+
+.file-details header {
+    @apply overflow-hidden;
+}

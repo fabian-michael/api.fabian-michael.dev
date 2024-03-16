@@ -1,14 +1,18 @@
-.column-selector,
-.date-time-picker .react-datepicker__input-container input,
-.dropzone,
-.edit-upload__input input,
-.field-type.api-key input,
-.field-type.email input,
-.field-type.password input,
-.field-type.text:not(.has-many) input,
-.field-type.textarea .textarea-outer,
-.list-controls__wrap,
-.upload__wrap {
+:is(.auth-fields,
+    .column-selector,
+    .date-time-picker .react-datepicker__input-container input,
+    .dropzone,
+    .edit-upload__input input,
+    .field-type.api-key input,
+    .field-type.email input,
+    .field-type.password input,
+    .field-type.text:not(.has-many) input,
+    .field-type.textarea .textarea-outer,
+    .list-controls__wrap,
+    .upload__wrap,
+    .react-select .rs__control,
+    .react-select .rs__menu,
+    .condition-value-text) {
     @apply bg-base-100 rounded-lg border border-base-content border-solid border-opacity-20;
 
     &:disabled {
@@ -16,14 +20,15 @@
     }
 }
 
-.column-selector .date-time-picker .react-datepicker__input-container input,
-.edit-upload__input input,
-.field-type.api-key input,
-.field-type.email input,
-.field-type.password input,
-.field-type.text:not(.has-many) input,
-.field-type.textarea .textarea-outer,
-.list-controls__wrap {
+:is(.date-time-picker .react-datepicker__input-container input,
+    .edit-upload__input input,
+    .field-type.api-key input,
+    .field-type.email input,
+    .field-type.password input,
+    .field-type.text:not(.has-many) input,
+    .field-type.textarea .textarea-outer,
+    .react-select .rs__control,
+    .condition-value-text) {
     @apply px-4 py-0 min-h-12 h-auto;
 }
 
@@ -49,5 +54,21 @@ label.field-label {
 
     input[type="checkbox"] {
         box-shadow: none !important;
+    }
+}
+
+.react-select .rs__menu {
+    @apply shadow-xl;
+}
+
+.react-select .rs__option {
+    @apply px-4 py-2;
+
+    &.rs__option--is-focused:not(.rs__option--is-selected) {
+        @apply bg-base-300;
+    }
+
+    &.rs__option--is-selected {
+        @apply bg-primary text-primary-content;
     }
 }

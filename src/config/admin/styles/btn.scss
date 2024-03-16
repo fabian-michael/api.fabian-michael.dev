@@ -55,4 +55,8 @@
     &:is(div[type="button"]) {
         @apply cursor-pointer flex items-center justify-center;
     }
+
+    &--icon {
+        @apply rounded-full
+    }
 }

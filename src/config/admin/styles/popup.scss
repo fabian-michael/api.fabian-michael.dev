@@ -1,0 +1,14 @@
+.popup__content {
+    @apply rounded-btn bg-base-100;
+}
+
+
+.popup--v-align-bottom {
+    .popup__caret {
+        @apply border-b-base-100;
+    }
+
+    .popup__content {
+        @apply shadow-xl;
+    }
+}

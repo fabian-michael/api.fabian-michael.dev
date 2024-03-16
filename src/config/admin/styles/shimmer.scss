@@ -1,0 +1,13 @@
+.shimmer-effect {
+    @apply bg-base-300 rounded-btn;
+}
+
+.shimmer-effect__shine {
+    background:
+        linear-gradient(100deg,
+            oklch(var(--b2)) 0%,
+            oklch(var(--b2)) 15%,
+            oklch(var(--b1)) 50%,
+            oklch(var(--b2)) 85%,
+            oklch(var(--b2)) 100%);
+}

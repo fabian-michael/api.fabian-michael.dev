@@ -21,36 +21,6 @@ body {
         radial-gradient(at 120vw 120dvh, var(--bg-gradient-right) 0px, rgba(0, 0, 0, 0) 60%);
 }
 
-.template-default__wrap {
-    @apply bg-base-100 bg-opacity-90;
-}
-
-
-.file-details header {
-    @apply bg-base-300 rounded-lg overflow-hidden;
-}
-
-
-.table tbody tr:nth-child(odd) {
-    @apply bg-base-300;
-}
-
-.auth-fields {
-    @apply bg-base-300 rounded-lg overflow-hidden;
-}
-
-.doc-controls__dots {
-    @apply rounded-btn;
-}
-
-.collection-list__header {
-    @apply items-center;
-}
-
-.collection-list__header .pill {
-    top: 0;
-}
-
 h1 {
     @apply text-3xl font-bold;
 }

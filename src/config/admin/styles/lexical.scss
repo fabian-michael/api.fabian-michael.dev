@@ -13,3 +13,7 @@
 .ContentEditable__root {
     @apply p-0;
 }
+
+.lexical-upload {
+    @apply bg-base-200 border-base-content border-opacity-20 rounded-lg;
+}

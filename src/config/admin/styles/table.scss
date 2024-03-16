@@ -1,0 +1,8 @@
+.table tbody tr:nth-child(odd) {
+    @apply bg-base-200;
+}
+
+.code-cell,
+.bool-cell {
+    @apply bg-base-300 text-base-content;
+}
