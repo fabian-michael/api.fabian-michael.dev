@@ -11,8 +11,9 @@ type AdminConfig = Config['admin'];
 export const adminConfig = (): AdminConfig => ({
     user: Users.slug,
     bundler: viteBundler(),
-    livePreview: PAYLOAD_PUBLIC_FRONTEND_BASE_URL &&
-        livePreviewConfig(),
+    livePreview: PAYLOAD_PUBLIC_FRONTEND_BASE_URL
+        ? livePreviewConfig()
+        : undefined,
     css: path.resolve(__dirname, './admin/styles/_index.scss'),
     components: {
         actions: [

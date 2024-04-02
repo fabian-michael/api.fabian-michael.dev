@@ -4,11 +4,7 @@ import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { payloadCloud } from '@payloadcms/plugin-cloud'
 import { buildConfig } from 'payload/config'
 
-import { ApiKeys } from './collections/ApiKeys'
-import { BlogPostings } from './collections/BlogPostings'
-import { FrontendUsers } from './collections/FrontendUsers'
-import { Media } from './collections/Media'
-import { Users } from './collections/Users'
+import { collections } from './collections'
 import { adminConfig } from './config/admin.config'
 import { corsConfig } from './config/cors.config'
 import { editorConfig } from './config/editor.config'
@@ -22,13 +18,7 @@ import { Resume } from './globals/Resume'
 
 
 export default buildConfig({
-    collections: [
-        Users,
-        FrontendUsers,
-        ApiKeys,
-        Media,
-        BlogPostings,
-    ],
+    collections,
     globals: [
         Home,
         LegalNotice,
@@ -45,7 +35,7 @@ export default buildConfig({
         payloadCloud()
     ],
     db: mongooseAdapter({
-        url: process.env.DATABASE_URI,
+        url: process.env.DATABASE_URI!,
     }),
     typescript: {
         outputFile: path.resolve(__dirname, 'payload-types.ts'),

@@ -1,8 +1,7 @@
-import { HTMLConverterFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
-import { RichTextAdapter } from "payload/types";
+import { HTMLConverterFeature, LexicalRichTextAdapter, lexicalEditor } from "@payloadcms/richtext-lexical";
 import { GradientTextFeature } from "./lexical/features/GradientText/GradientTextFeature";
 
-export function editorConfig(): RichTextAdapter {
+export function editorConfig(): LexicalRichTextAdapter {
     return lexicalEditor({
         features: ({ defaultFeatures }) => [
             ...defaultFeatures,
