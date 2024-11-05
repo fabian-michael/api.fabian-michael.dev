@@ -3,28 +3,33 @@ import { CollectionConfig } from 'payload/types';
 
 export const Passkeys: CollectionConfig = {
     slug: 'passkeys',
+    admin: {
+        useAsTitle: 'name',
+    },
     fields: [
         {
-            name: 'user',
-            label: 'User',
-            type: 'relationship',
-            relationTo: 'frontend-users',
-            hasMany: false,
+            name: 'id',
+            label: 'Credential ID',
+            type: 'text',
+
         },
         {
             name: 'name',
             label: 'Name',
             type: 'text',
-        },
-        {
-            name: 'credential_id',
-            label: 'Credential ID',
-            type: 'text',
+            required: true,
         },
         {
             name: 'public_key',
             label: 'Public Key',
             type: 'textarea',
+            required: true,
+        },
+        {
+            name: 'algorithm',
+            label: 'Algorithm',
+            type: 'text',
+            required: true,
         },
     ]
 };
@@ -39,11 +44,13 @@ export const FrontendUsers: CollectionConfig = {
             name: 'email',
             label: 'E-mail',
             type: 'text',
+            required: true,
         },
         {
             name: 'full_name',
             label: 'Full Name',
             type: 'text',
+            required: true,
         },
         {
             name: 'phone',
@@ -54,21 +61,34 @@ export const FrontendUsers: CollectionConfig = {
             name: 'company',
             label: 'Company',
             type: 'text',
+            required: true,
         },
         {
             name: 'company_address',
             label: 'Company Address',
             type: 'text',
+            required: true,
         },
         {
             name: 'company_website',
             label: 'Company Website',
             type: 'text',
+            required: true,
         },
         {
             name: 'message',
             label: 'Message',
             type: 'textarea',
+            required: true,
+        },
+        {
+            name: 'passkeys',
+            label: 'Passkeys',
+            type: 'relationship',
+            relationTo: 'passkeys',
+            hasMany: true,
+            required: true,
+            minRows: 1,
         }
     ],
     hooks: {
