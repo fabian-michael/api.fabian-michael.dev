@@ -1,4 +1,5 @@
 import { lexicalHTML } from "@payloadcms/richtext-lexical";
+import { RowLabelArgs } from "payload/dist/admin/components/forms/RowLabel/types";
 import { GlobalConfig } from "payload/types";
 import { verifyUser } from "../../access/verifyUser";
 import { FrontendUsers } from "../../collections/FrontendUsers";
@@ -71,9 +72,10 @@ export const Resume: GlobalConfig = {
                             minRows: 1,
                             admin: {
                                 components: {
-                                    RowLabel: ({ data }) => {
+                                    RowLabel: ({ data }: RowLabelArgs) => {
                                         return `${data.company} (${data.job_title})`;
-                                    }
+                                    },
+
                                 }
                             },
                             fields: [
@@ -141,7 +143,7 @@ export const Resume: GlobalConfig = {
                             minRows: 1,
                             admin: {
                                 components: {
-                                    RowLabel: ({ data }) => {
+                                    RowLabel: ({ data }: RowLabelArgs) => {
                                         return `${data.institution} (${data.title})`;
                                     }
                                 }
