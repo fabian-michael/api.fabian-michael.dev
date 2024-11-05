@@ -124,7 +124,7 @@ function $getAncestor(
     return parent
 }
 
-function $getGradientTextAncestor(node?: LexicalNode): GradientTextNode | null {
+function $getGradientTextAncestor(node: LexicalNode): GradientTextNode | null {
     return $getAncestor(node, (ancestor) => $isGradientTextNode(ancestor)) as GradientTextNode
 }
 
@@ -142,6 +142,7 @@ export function toggleGradientTextNode(enable: boolean) {
         nodes.forEach((node) => {
             const parent = node.getParent()
 
+            // @ts-ignore
             if ($isGradientTextNode(parent)) {
                 const children = parent.getChildren()
 

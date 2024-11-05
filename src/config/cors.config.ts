@@ -1,7 +1,7 @@
 import { trimEndCurried } from "../utils";
 import { PAYLOAD_PUBLIC_FRONTEND_BASE_URL } from "./env.public";
 
-export const corsConfig = (): string[] => [
+export const corsConfig = (): string[] => ([
     'http://localhost:5173',
     PAYLOAD_PUBLIC_FRONTEND_BASE_URL,
-].filter(Boolean).map(trimEndCurried('/'));
+].filter(Boolean) as string[]).map(trimEndCurried('/'));

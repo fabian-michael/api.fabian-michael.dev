@@ -1,11 +1,9 @@
 import { FeatureProvider, HTMLConverter, convertLexicalNodesToHTML, getSelectedNode } from "@payloadcms/richtext-lexical";
 import { FeaturesSectionWithEntries } from "@payloadcms/richtext-lexical/dist/field/features/common/floatingSelectToolbarFeaturesButtonsSection";
-import { $isRangeSelection, SerializedElementNode } from "lexical";
-import React from "react";
+import { $isRangeSelection, RangeSelection, SerializedElementNode } from "lexical";
+import React, { PropsWithChildren } from "react";
 import { $isGradientTextNode, GradientTextNode, TOGGLE_GRADIENT_TEXT_NODE } from "./GradientTextNode";
 import { GradientTextPlugin } from "./GradientTextPlugin";
-
-
 
 /**
  * Gradient Text Feature
@@ -36,9 +34,10 @@ export const GradientTextFeature = (): FeatureProvider => ({
                                 </svg>
                             )
                         ),
+
                         isActive: ({ selection }) => {
                             if ($isRangeSelection(selection)) {
-                                const selectedNode = getSelectedNode(selection);
+                                const selectedNode = getSelectedNode(selection as RangeSelection);
                                 const parent = selectedNode.getParent();
 
                                 return $isGradientTextNode(parent);
@@ -72,6 +71,7 @@ export const GradientTextFeature = (): FeatureProvider => ({
                 node: GradientTextNode,
                 type: GradientTextNode.getType(),
                 converters: {
+                    // @ts-ignore
                     html: {
                         converter: async ({ converters, node, parent }) => {
                             const childrenText = await convertLexicalNodesToHTML({
@@ -86,7 +86,7 @@ export const GradientTextFeature = (): FeatureProvider => ({
                             return `<span class="gradient-text">${childrenText}</span>`;
                         },
                         nodeTypes: [GradientTextNode.getType()],
-                    } as HTMLConverter<SerializedElementNode>,
+                    } satisfies HTMLConverter<SerializedElementNode>,
                 },
 
             },
