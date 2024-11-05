@@ -12,6 +12,13 @@ services:
     logging:
       driver: none
 
+  mailhog:
+    platform: linux/amd64
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
 volumes:
   data:
   node_modules:
